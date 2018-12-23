@@ -5,6 +5,21 @@ enum IpAddrKind{
     V6(String),
 }
 
+
+#[derive(Debug)]
+enum UsState{
+    Alabama,
+    Alaska
+}
+
+
+enum Coin{
+    Penny,
+    Nickel,
+    Dime,
+    Quarter(UsState),
+}
+
 // enum Option<T> {
 //     Some(T),
 //     None,
@@ -12,6 +27,25 @@ enum IpAddrKind{
 
 fn route(ip_type: IpAddrKind){
 
+}
+
+fn value_in_cents(coin: Coin) -> u32{
+    match coin{
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter(state) => {
+            println!("State quarter from {:?}!", state);
+            25
+        },
+    }
+}
+
+fn plus_one(x: Option<i32>) -> Option<i32>{
+    match x {
+        None => None,
+        Some(i) => Some(i+1),
+    }
 }
 
 fn main() {
@@ -29,6 +63,18 @@ fn main() {
     let some_string = Some("a string");
 
     let absent_number: Option<i32> = None;
+     println!("Testerooo {:#?}", absent_number);
 
-     println!("Testerooo {:#?}", absent_number);   
+     let penny = Coin::Penny;
+
+     let quarter = Coin::Quarter(UsState::Alabama);
+     let value = value_in_cents(penny);
+     let value2 = value_in_cents(quarter);
+     println!("Penny {:#?}", value);   
+     println!("Quarter {:#?}", value2); 
+
+     let five = Some(5);
+     let six = plus_one(five);
+     let none = plus_one(None);
+     println!("six ==> {:#?}", none);
 }
