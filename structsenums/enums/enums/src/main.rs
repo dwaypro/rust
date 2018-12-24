@@ -76,5 +76,21 @@ fn main() {
      let five = Some(5);
      let six = plus_one(five);
      let none = plus_one(None);
+
+     let some_u8_value = Some(0u8);
+     match some_u8_value{
+         Some(3) => println!("three"),
+         _=>(),
+     }
+
+     if let Some(3) = some_u8_value{
+         println!("Three")
+     }
+
+     let mut count = 0;
+     match coin{
+         Coin::Quarter(state) => println!("State quarter from {:?}!", state),
+         _-> count += 1;
+     }
      println!("six ==> {:#?}", none);
 }
