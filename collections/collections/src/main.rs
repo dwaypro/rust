@@ -220,4 +220,10 @@ println!("{:?}", map);
 
 
 
+
+//challenges
+
+ let vmean = vec![1,2,3,4,5];
+ // find the mean median and mode
+
 }
