@@ -68,4 +68,75 @@ for i in &mut row{
     println!("mutable element enum == {:#?}", i);
 }
 
+let mut s = String::new();
+// any type that implements the Display trait, can have to_string
+// called on it.
+
+let data = "initial conetnts";
+let s = data.to_string();
+let s2 = "Initial contents".to_string();
+
+let s3 = String::from("initial contents");
+
+
+println!("S {}", s);
+
+let mut s4 = String::from("foo");
+s4.push_str("bar");
+
+println!("S {}", s4);
+
+let mut s5 = String::from("foo");
+let s6 = "bar";
+s5.push_str(s6);
+println!("s5 is {}", s5);
+
+let mut string = String::from("lo");
+string.push('l');
+println!("string ==>' {}", string);
+
+let string1 = String::from("hello, ");
+let string2 = String::from("world!");
+let string3 = string1 + &string2;
+
+println!("String 3 ==> {}", string3);
+
+let string4 = String::from("tic");
+let string5 = String::from("tac");
+let string6 = String::from("toe");
+
+// let string7 = string4 + "-" + &string5 + "-" + &string6;
+// println!("string7 ==> {}", string7);
+
+//we can use format to accomplish the same thing, but cleaner.
+let string8 = format!("{}-{}-{}", string4, string5, string6);
+println!("string8 ==> {}", string8);
+
+
+let len = String::from("Hola").len();
+
+let len = String::from("something cryptic").len();
+
+//accessing characters inside strings can be complicated and is not
+// recommended.
+// however we ca iterate over strings.
+let string9 = String::from("suh dude");
+
+for c in string9.chars(){
+    println!("{}", c);
+}
+
+//we can iterate over bytes as well:
+
+let string10 = String::from("suh dudes");
+
+for b in string10.bytes(){
+    println!("byte value ==> {}", b);
+}
+
+
+
+
+
+
 }
