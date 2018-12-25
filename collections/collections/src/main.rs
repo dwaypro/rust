@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 
 fn main() {
 
@@ -119,7 +120,7 @@ let len = String::from("something cryptic").len();
 
 //accessing characters inside strings can be complicated and is not
 // recommended.
-// however we ca iterate over strings.
+// however we can iterate over strings.
 let string9 = String::from("suh dude");
 
 for c in string9.chars(){
@@ -136,6 +137,86 @@ for b in string10.bytes(){
 
 
 
+//storing keys with hashmaps
+let mut scores = HashMap::new();
+
+scores.insert(String::from("Blue"), 10);
+scores.insert(String::from("Yellow"), 50);
+
+println!("scores ==>, {:#?}", scores);
+
+
+//can't access fields like so:
+// println!("Scores.blues ==> {:#?}", scores.blue);
+let teams = vec![String::from("Blue"), String::from("Yellow")];
+let initial_scores = vec![10,50];
+
+let scores2: HashMap<_, _> = teams.iter().zip(initial_scores.iter()).collect();
+println!("scores ==>. {:#?}", scores2);
+
+let field_name = String::from("favorite color");
+let field_value = String::from("Blue");
+
+let mut map = HashMap::new();
+
+map.insert(field_name, field_value);
+
+
+println!("map from fieldnames ==>, {:#?}", map);
+
+
+//accessing Values in a Hash Map;
+
+let mut scores = HashMap::new();
+scores.insert(String::from("Blue"),10);
+scores.insert(String::from("Yellow"), 50);
+
+let team_name = String::from("Blue");
+
+
+//using .get()
+let score = scores.get(&team_name);
+println!("score ==> {:#?}", score);
+
+
+//iterating(prints in arbitrary order)
+for (key, value) in &scores {
+    println!("{}: {}", key, value);
+}
+
+
+// Updating a hash map;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from("Blue"), 10);
+scores.insert(String::from("Blue"), 25);
+//ten is overwritten
+println!("{:?}", scores);
+
+// controled insertion
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from("Blue"), 10);
+scores.entry(String::from("Yellow")).or_insert(50);
+scores.entry(String::from("Blue")).or_insert(50);
+
+
+//blue is still 10, because it checked for existence.
+println!("{:?}", scores);
+
+//updating a value based on the oldvalue;
+let text = "Hello world wonderful world";
+
+let mut map = HashMap::new();
+
+for word in text.split_whitespace(){
+    let count = map.entry(word).or_insert(0);
+    *count += 1;
+}
+
+println!("{:?}", map);
 
 
 
