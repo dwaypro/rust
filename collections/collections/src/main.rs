@@ -252,17 +252,24 @@ println!(" map ==>{:?}", map);
 
 let mut vmean3 = vec![4,5,3,6,7,7,7,8,1];
 let mut times = HashMap::new();
+let mut largest = 0;
 // times.insert(String::from("Blue"), 10);
 // or_insert
 vmean3.sort();
 
 println!("vmean3 sorted ==> {:#?}", vmean3);
 
-for int in vmean3{
-    
-    times.entry(int).or_insert(int);
+for int in vmean3{    
+    let count = times.entry(int).or_insert(0);
+    *count += 1;
+};
+// let largest = times.max(times);
+let largest = times
+                .into_iter()
+                .max_by_key(|&(_,count)| count)
+                .map(|(val,_)| val)
+                .expect("cannot compute");
 
-}
-println!("times after loop {:#?}", times)
+println!("mode {:#?}", largest)
 
 }
