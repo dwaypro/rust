@@ -216,14 +216,53 @@ for word in text.split_whitespace(){
     *count += 1;
 }
 
-println!("{:?}", map);
+println!(" map ==>{:?}", map);
 
 
 
 
 //challenges
 
- let vmean = vec![1,2,3,4,5];
  // find the mean median and mode
+
+ let mut sum = 0;
+ let mut vmean = vec![1,2,3,4,5];
+ let length = &vmean.len();
+ 
+ for int in vmean{
+     println!("int {}", int);
+     println!("sum {}", sum);
+     sum += int;
+ };
+
+ println!("sum after loop {}", sum);
+ let mean = sum / length;
+ println!("mean  ==>{}", mean);
+
+ 
+
+ let mut vmean2 = vec![2,1,3,5,4];
+ let length2 = vmean2.len();
+ let medianIndex = vmean2.len()/2;
+ vmean2.sort();
+ println!("sorted ==> {:#?}", vmean2);
+ println!("medianIndex {}", medianIndex);
+ println!("median ==>{}", vmean2[medianIndex]);
+// vmean2.iter().position(|&int| )
+
+let mut vmean3 = vec![4,5,3,6,7,7,7,8,1];
+let mut times = HashMap::new();
+// times.insert(String::from("Blue"), 10);
+// or_insert
+vmean3.sort();
+
+println!("vmean3 sorted ==> {:#?}", vmean3);
+
+for int in vmean3{
+    
+    times.entry(int).or_insert(int);
+
+}
+println!("times after loop {:#?}", times)
 
 }
