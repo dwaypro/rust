@@ -1,1 +1,1 @@
-/Users/dwaypro/projects/rust/collections/collections/target/debug/collections.dSYM: /Users/dwaypro/projects/rust/collections/collections/src/main.rs
+c:\Users\daniel\Projects\rust\rust\collections\collections\target\debug\collections.pdb: c:\Users\daniel\Projects\rust\rust\collections\collections\src\main.rs

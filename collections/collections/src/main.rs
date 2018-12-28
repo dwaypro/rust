@@ -250,7 +250,7 @@ println!(" map ==>{:?}", map);
  println!("median ==>{}", vmean2[medianIndex]);
 // vmean2.iter().position(|&int| )
 
-let mut vmean3 = vec![4,5,3,6,7,7,7,8,1];
+let mut vmean3 = vec![4,5,3,6,7,7,7,8,8,8,8,8,1];
 let mut times = HashMap::new();
 let mut largest = 0;
 // times.insert(String::from("Blue"), 10);
@@ -265,11 +265,21 @@ for int in vmean3{
 };
 // let largest = times.max(times);
 let largest = times
-                .into_iter()
+                .iter()
                 .max_by_key(|&(_,count)| count)
                 .map(|(val,_)| val)
                 .expect("cannot compute");
 
-println!("mode {:#?}", largest)
+println!("mode {:#?}", largest);
+
+let mut first = String::from("first");
+// need to create irstfay
+// need to match consonants.
+
+
+
+
+                                
+
 
 }
