@@ -6,26 +6,30 @@ fn main() {
 
     let p = Point {x:5, y:10};
 
+    // let p1 = Point;
+
     // println!("p.x = {}", p.x());
 
-    largest(&number_list);
+    let largestVal = largest(&number_list);
+
+    println!("largest val ==> {}", largestVal);
     largest(&number_list2);
 }
 
 
-fn largest(number_list: &[i32]) -> i32{
-    let mut largest = number_list[0];
+// fn largest(number_list: &[i32]) -> i32{
+//     let mut largest = number_list[0];
 
-    for &number in number_list {
-        if number > largest {
-            largest = number;
-        }
-    }
+//     for &number in number_list {
+//         if number > largest {
+//             largest = number;
+//         }
+//     }
 
-    println!("The largest number is {}", largest);
+//     println!("The largest number is {}", largest);
 
-    largest
-}
+//     largest
+// }
 
 fn largest_char(list: &[char]) -> char{
     let mut largest = list[0];
@@ -40,6 +44,19 @@ fn largest_char(list: &[char]) -> char{
 
     largest
 }
+
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
+    let mut largest = list[0];
+
+    for &item in list.iter() {
+        if item > largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+
 
 //generics 
 struct Point<T, U>{
