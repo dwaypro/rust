@@ -3,6 +3,8 @@ use std::process;
 use grep;
 use grep::Config;
 
+
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     let config = Config::new(&args).unwrap_or_else(|err| {
@@ -21,7 +23,8 @@ fn main() {
 
         process::exit(1);
     }
-
 }
+
+
 
 
