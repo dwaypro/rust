@@ -49,7 +49,7 @@ impl<T> Cacher<T>
 }    
 
 fn generate_workout(intensity: u32, random_number: u32) {
-    let mut expensive_closure = Cacher::new(|num| {
+    let mut expensive_result = Cacher::new(|num| {
         println!("calculating slowly...");
         thread::sleep(Duration::from_secs(2));
         num
@@ -58,11 +58,11 @@ fn generate_workout(intensity: u32, random_number: u32) {
     if intensity < 25 {
         println!(
             "Today, do {} pushups!",
-            expensive_closure.value(intensity)
+            expensive_result.value(intensity)
         );
         println!(
             "Next, do {} situps!",
-            expensive_closure.value(intensity)
+            expensive_result.value(intensity)
         );
     } else {
         if random_number == 3 {
@@ -70,7 +70,7 @@ fn generate_workout(intensity: u32, random_number: u32) {
         } else {
             println!(
                 "Today, run for {} minutes!",
-                expensive_closure.value(intensity)
+                expensive_result.value(intensity)
             );
         }
     }
