@@ -1,4 +1,4 @@
-{
+[{
     "key": "ctrl+enter",
     "command": "workbench.action.terminal.focusAtIndex1"
 },
@@ -15,3 +15,4 @@
 "command": "workbench.action.focusActiveEditorGroup",
 "when": "filesExplorerFocus"
 },
+]

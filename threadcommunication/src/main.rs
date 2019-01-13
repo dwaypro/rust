@@ -1,11 +1,19 @@
+use std::sync::mpsc;
+use std::thread;
+
 fn main() {
-    println!("Hello, world!");
-    operate(15);
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let val = String::from("hi");
+        tx.send(val).unwrap();
+    });
+
+    let received = rx.recv().unwrap();
+    println!("Got: {}", received);
+    
 }
 
-fn operate(a: i32) -> i32{
-    println!("hello!");
-    a
-}
+
 
 
