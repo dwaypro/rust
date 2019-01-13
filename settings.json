@@ -15,6 +15,10 @@
 "command": "workbench.action.focusActiveEditorGroup",
 "when": "filesExplorerFocus"
 },
+{
+    "key": "ctrl+n",
+    "command": "explorer.newFile"
+},
 ]
 
 //chrome toggle tab hot key:  control + # of tab 1-8
