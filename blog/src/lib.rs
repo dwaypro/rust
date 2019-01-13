@@ -15,14 +15,10 @@ impl Post {
         self.content.push_str(text);
     }
 
-    // pub fn content(&self) -> &str{
-    //     ""
-    // }
     pub fn content(&self) -> &str {
         self.state.as_ref().unwrap().content(&self)
     }
     
-
     pub fn request_review(&mut self){
         if let Some(s) = self.state.take(){
             self.state = Some(s.request_review())
@@ -30,16 +26,23 @@ impl Post {
     }
 
     pub fn approve(&mut self){
+        println!("self ==> {:?}", self.content);
+        // println!("self.state ==> {:?}", self.state);
         if let Some(s) = self.state.take(){
+            
             self.state = Some(s.approve())
         }
     }
 }
 
 trait State{
-    fn content<'a>(&self,post: &'a Post) -> &'a str{
-        ""
+    // fn content<'a>(&self,post: &'a Post) -> &'a str{
+    //     ""
+    // }
+     fn content<'a>(&self, post: &'a Post) -> &'a str {
+        &post.content
     }
+    
     fn request_review(self: Box<Self>) -> Box<dyn State>;
     fn approve(self: Box<Self>) -> Box<dyn State>;    
 }
@@ -47,6 +50,9 @@ trait State{
 struct Draft{}
 
 impl State for Draft{
+     fn content<'a>(&self, post: &'a Post) -> &'a str {
+        &post.content
+    }
     fn request_review(self: Box<Self>) -> Box<dyn State>{
         Box::new(PendingReview{})        
     }
@@ -59,6 +65,10 @@ impl State for Draft{
 struct PendingReview{}
 
 impl State for PendingReview {
+     fn content<'a>(&self, post: &'a Post) -> &'a str {
+        &post.content
+    }
+
     fn request_review(self: Box<Self>) -> Box<dyn State>{
         self
     }
