@@ -10,9 +10,9 @@ struct SelectBox{
 
 impl Draw for SelectBox {
     fn draw(&self){
-
     }
 }
+
 
 fn main() {
     let screen = Screen{
