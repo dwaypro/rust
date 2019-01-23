@@ -3,8 +3,18 @@ use std::net::TcpStream;
 use std::net::TcpListener;
 use std::fs;
 
+// use serialize::json;
+
 use std::thread;
 use std::time::Duration;
+
+
+// use hyper::header::{Headers, AccessControlAllowOrigin};
+
+// let mut headers = Headers::new();
+// headers.set(
+//     AccessControlAllowOrigin::Any
+// );
 
 // use webserver::ThreadPool;
 
@@ -25,7 +35,7 @@ fn handle_connection(mut stream: TcpStream){
     let mut buffer = [0; 512];
     stream.read(&mut buffer).unwrap();
     let get = b"GET / HTTP/1.1\r\n";
-    
+    println!("buffer ==> ");
     let (status_line, filename) = if buffer.starts_with(get) {
         ("HTTP/1.1 200 OK\r\n\r\n", "hello.html")
     } else {
