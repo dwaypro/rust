@@ -25,3 +25,8 @@ extern {
 pub fn greet(name: &str) {    
     alert(&format!("Hello, {}!", name));
 }
+
+#[wasm_bindgen]
+pub fn salute(name: &str){
+    alert(&format!("Hello, {}!", name));
+}
