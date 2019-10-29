@@ -1,0 +1,1 @@
+C:\Users\Daniel\projects\rust\rust\webassembly\wasm-game-of-life\target\debug\libwasm_game_of_life.rmeta: C:\Users\Daniel\projects\rust\rust\webassembly\wasm-game-of-life\src\lib.rs C:\Users\Daniel\projects\rust\rust\webassembly\wasm-game-of-life\src\utils.rs

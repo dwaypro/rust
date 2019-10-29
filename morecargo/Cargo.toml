@@ -1,0 +1,15 @@
+[package]
+name = "morecargo"
+version = "0.1.0"
+authors = ["Daniel <dangrantway@gmail.com>"]
+edition = "2018"
+description = "crate"
+license = "MIT"
+
+[dependencies]
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

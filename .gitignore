@@ -1,2 +1,8 @@
 react
 node_modules
+
+
+# Generated files
+target
+
+Cargo.lock
